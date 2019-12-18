@@ -3,11 +3,13 @@ import {
   GET_DATA,
   GET_HIGH_PRICE,
   GET_LOW_PRICE,
+  UPDATE_SORT_MESSAGE,
   UPDATE_WISH_LIST
 } from '../constants/actionTypes';
 
 export const initialState = {
   productList: [],
+  sortMessage: '',
   wishList: []
 };
 
@@ -16,9 +18,20 @@ const getDataReducer = (state = initialState.productList, action) => {
     case GET_DATA:
       return action.data;
     case GET_HIGH_PRICE:
-      return action.data;
+      const sortedHighPriceList = state.sort((a, b) => b.price - a.price);
+      return sortedHighPriceList;
     case GET_LOW_PRICE:
-      return action.data;
+      const sortedLowPriceList = state.sort((a, b) => a.price - b.price);
+      return sortedLowPriceList;
+    default:
+      return state;
+  }
+};
+
+const updateSortMessageReducer = (state = initialState.sortMessage, action) => {
+  switch (action.type) {
+    case UPDATE_SORT_MESSAGE:
+      return action.selection;
     default:
       return state;
   }
@@ -43,6 +56,7 @@ const updateWishListReducer = (state = initialState.wishList, action) => {
 
 const myrealtrip = combineReducers({
   productList: getDataReducer,
+  sortMessage: updateSortMessageReducer,
   wishList: updateWishListReducer
 });
 

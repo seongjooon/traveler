@@ -7,11 +7,12 @@ class List extends Component {
   componentDidMount() {
     const { onLoad, sortProductList, match } = this.props;
 
-    if (onLoad) {
-      onLoad();
-    } else if (sortProductList) {
+    onLoad();
+    if (sortProductList) {
       const selection = match.params.selection;
-
+      if (selection === 'wish-list') {
+        console.log('확인', selection);
+      }
       sortProductList(selection);
     }
   }

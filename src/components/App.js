@@ -36,6 +36,20 @@ class App extends Component {
             render={props => (
               <List
                 {...props}
+                onLoad={onLoad}
+                sortProductList={getSortedPriceOfProductList}
+                productList={productList}
+                updateWishList={updateWishList}
+                wishList={wishList}
+              />
+            )}
+          />
+          <Route
+            path="/products/:selection"
+            render={props => (
+              <List
+                {...props}
+                onLoad={onLoad}
                 sortProductList={getSortedPriceOfProductList}
                 productList={productList}
                 updateWishList={updateWishList}

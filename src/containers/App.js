@@ -4,33 +4,33 @@ import {
   getDataAction,
   getHighPriceAction,
   getLowPriceAction,
+  updateSortMessageAction,
   updateWishListAction
 } from '../actions';
 import data from '../data.json';
 
 const mapStateToProps = state => ({
   productList: state.productList,
+  sortMessage: state.sortMessage,
   wishList: state.wishList
 });
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
-    setTimeout(() => {
-      dispatch(getDataAction(data));
-    }, 500);
+    dispatch(getDataAction(data));
   },
   getSortedPriceOfProductList: selection => {
     if (selection === 'high') {
-      const sortedHighPrice = data.sort((a, b) => b.price - a.price);
-      dispatch(getHighPriceAction(sortedHighPrice));
+      dispatch(getHighPriceAction());
+      dispatch(updateSortMessageAction(selection));
     }
     if (selection === 'low') {
-      const sortedLowPrice = data.sort((a, b) => a.price - b.price);
-      dispatch(getLowPriceAction(sortedLowPrice));
+      dispatch(getLowPriceAction());
+      dispatch(updateSortMessageAction(selection));
     }
   },
-  updateWishList: (cardId) => {
-      dispatch(updateWishListAction(cardId));
+  updateWishList: cardId => {
+    dispatch(updateWishListAction(cardId));
   }
 });
 
