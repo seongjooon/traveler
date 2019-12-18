@@ -5,6 +5,7 @@ import {
   getHighPriceAction,
   getLowPriceAction,
   updateSortMessageAction,
+  updateSelectedListMessageAction,
   updateWishListAction
 } from '../actions';
 import data from '../data.json';
@@ -12,21 +13,26 @@ import data from '../data.json';
 const mapStateToProps = state => ({
   productList: state.productList,
   sortMessage: state.sortMessage,
+  selectedListMessage: state.selectedListMessage,
   wishList: state.wishList
 });
 
 const mapDispatchToProps = dispatch => ({
   onLoad: () => {
     dispatch(getDataAction(data));
+    dispatch(updateSelectedListMessageAction('default'));
   },
-  getSortedPriceOfProductList: selection => {
+  updateProductList: selection => {
     if (selection === 'high') {
       dispatch(getHighPriceAction());
       dispatch(updateSortMessageAction(selection));
-    }
-    if (selection === 'low') {
+    } else if (selection === 'low') {
       dispatch(getLowPriceAction());
       dispatch(updateSortMessageAction(selection));
+    } else if (selection === 'default') {
+      dispatch(updateSelectedListMessageAction(selection));
+    } else if (selection === 'wish') {
+      dispatch(updateSelectedListMessageAction(selection));
     }
   },
   updateWishList: cardId => {

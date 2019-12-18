@@ -9,36 +9,32 @@ class App extends Component {
     const {
       onLoad,
       productList,
-      getSortedPriceOfProductList,
+      updateProductList,
+      sortMessage,
+      selectedListMessage,
       updateWishList,
       wishList
     } = this.props;
 
     return (
       <div className="App">
-        <Header sortProductList={getSortedPriceOfProductList} />
+        <Header
+          updateProductList={updateProductList}
+          sortMessage={sortMessage}
+          selectedListMessage={selectedListMessage}
+        />
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/main" />} />
-          <Route
-            exact
-            path="/main"
-            render={() => (
-              <List
-                onLoad={onLoad}
-                productList={productList}
-                updateWishList={updateWishList}
-                wishList={wishList}
-              />
-            )}
-          />
           <Route
             path="/sorted-price/:selection"
             render={props => (
               <List
                 {...props}
                 onLoad={onLoad}
-                sortProductList={getSortedPriceOfProductList}
+                updateProductList={updateProductList}
                 productList={productList}
+                sortMessage={sortMessage}
+                selectedListMessage={selectedListMessage}
                 updateWishList={updateWishList}
                 wishList={wishList}
               />
@@ -50,8 +46,23 @@ class App extends Component {
               <List
                 {...props}
                 onLoad={onLoad}
-                sortProductList={getSortedPriceOfProductList}
+                updateProductList={updateProductList}
                 productList={productList}
+                sortMessage={sortMessage}
+                selectedListMessage={selectedListMessage}
+                updateWishList={updateWishList}
+                wishList={wishList}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/main"
+            render={() => (
+              <List
+                onLoad={onLoad}
+                productList={productList}
+                selectedListMessage={selectedListMessage}
                 updateWishList={updateWishList}
                 wishList={wishList}
               />
