@@ -19,6 +19,7 @@ class List extends Component {
               <img
                 className="product-thumnail"
                 src={`${PRODUCT_THUMNAIL_PATH}${index + 1}.jpg`}
+                alt="product thumnail"
               />
             </div>
             <div className="product-module-body">
