@@ -6,6 +6,7 @@ import List from './List/List';
 class App extends Component {
   render() {
     const { onLoad, productList } = this.props;
+
     return (
       <div className="App">
         <Header />
