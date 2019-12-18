@@ -6,9 +6,10 @@
   height: 73px;
   background-color: #2a96ed;
   .main-logo {
+    cursor: pointer;
     padding: 20px 0 0 15%;
     width: 128px;
-    height: 34px;
+    height: 28px;
   }
   .buttons-wrapper {
     display: inline-flex;
@@ -17,6 +18,7 @@
     width: 64%;
     height: 100%;
     button {
+      cursor: pointer;
       padding: 6px 12px;
       height: 36px;
       border-radius: 3px;

@@ -16,6 +16,7 @@
   justify-content: space-around;
   padding-top: 100px;
   .product-card {
+    cursor: pointer;
     position: relative;
     margin: 30px 2px;
     width: 250px;
@@ -46,7 +47,7 @@
       }
       .product-price {
         position: absolute;
-        bottom: 5%;
+        bottom: 8%;
         color: #666d75;
         font-size: 14px;
         font-weight: 500;
@@ -56,7 +57,12 @@
       position: absolute;
       top: 8px;
       right: 8px;
-      color: white;
+      .heart-icon {
+        color: #fa5b4a;
+      }
+      .heart-empty-icon {
+        color: white;
+      }
     }
   }
 }

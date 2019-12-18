@@ -6,7 +6,13 @@ import List from './List/List';
 
 class App extends Component {
   render() {
-    const { onLoad, productList, getSortedPriceOfProductList } = this.props;
+    const {
+      onLoad,
+      productList,
+      getSortedPriceOfProductList,
+      updateWishList,
+      wishList
+    } = this.props;
 
     return (
       <div className="App">
@@ -16,7 +22,14 @@ class App extends Component {
           <Route
             exact
             path="/main"
-            render={() => <List onLoad={onLoad} productList={productList} />}
+            render={() => (
+              <List
+                onLoad={onLoad}
+                productList={productList}
+                updateWishList={updateWishList}
+                wishList={wishList}
+              />
+            )}
           />
           <Route
             path="/sorted-price/:selection"
@@ -25,6 +38,8 @@ class App extends Component {
                 {...props}
                 sortProductList={getSortedPriceOfProductList}
                 productList={productList}
+                updateWishList={updateWishList}
+                wishList={wishList}
               />
             )}
           />

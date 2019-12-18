@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import './List.scss';
 import { PRODUCT_THUMNAIL_PATH } from '../../constants/constant';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 
 class List extends Component {
   componentDidMount() {
-    const { onLoad, sortProductList } = this.props;
+    const { onLoad, sortProductList, match } = this.props;
 
     if (onLoad) {
       onLoad();
     } else if (sortProductList) {
-      const { match } = this.props;
       const selection = match.params.selection;
 
       sortProductList(selection);
     }
   }
 
+  handleClick = cardId => {
+    const { updateWishList } = this.props;
+    updateWishList(cardId);
+  };
+
   render() {
-    const { productList } = this.props;
+    const { productList, wishList } = this.props;
 
     return (
       <div className="List">
@@ -37,8 +41,15 @@ class List extends Component {
                 {product.price.toLocaleString()}원
               </div>
             </div>
-            <div className="product-wish-icons">
-              <FaRegHeart className="heart-empty icon" />
+            <div
+              className="product-wish-icons"
+              onClick={() => this.handleClick(product.id)}
+            >
+              {wishList.find(wishCard => wishCard === product.id) ? (
+                <FaHeart className="heart-icon" />
+              ) : (
+                <FaRegHeart className="heart-empty-icon" />
+              )}
             </div>
           </div>
         ))}

@@ -3,12 +3,14 @@ import App from '../components/App';
 import {
   getDataAction,
   getHighPriceAction,
-  getLowPriceAction
+  getLowPriceAction,
+  updateWishListAction
 } from '../actions';
 import data from '../data.json';
 
 const mapStateToProps = state => ({
-  productList: state.productList
+  productList: state.productList,
+  wishList: state.wishList
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -26,6 +28,9 @@ const mapDispatchToProps = dispatch => ({
       const sortedLowPrice = data.sort((a, b) => a.price - b.price);
       dispatch(getLowPriceAction(sortedLowPrice));
     }
+  },
+  updateWishList: (cardId) => {
+      dispatch(updateWishListAction(cardId));
   }
 });
 

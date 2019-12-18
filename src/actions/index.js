@@ -1,7 +1,8 @@
 import {
   GET_DATA,
   GET_HIGH_PRICE,
-  GET_LOW_PRICE
+  GET_LOW_PRICE,
+  UPDATE_WISH_LIST
 } from '../constants/actionTypes';
 
 export const getDataAction = data => ({
@@ -17,4 +18,9 @@ export const getHighPriceAction = data => ({
 export const getLowPriceAction = data => ({
   type: GET_LOW_PRICE,
   data
+});
+
+export const updateWishListAction = cardId => ({
+  type: UPDATE_WISH_LIST,
+  cardId
 });
