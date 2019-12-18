@@ -5,7 +5,16 @@ import { FaRegHeart } from 'react-icons/fa';
 
 class List extends Component {
   componentDidMount() {
-    this.props.onLoad();
+    const { onLoad, sortProductList } = this.props;
+
+    if (onLoad) {
+      onLoad();
+    } else if (sortProductList) {
+      const { match } = this.props;
+      const selection = match.params.selection;
+
+      sortProductList(selection);
+    }
   }
 
   render() {
@@ -18,7 +27,7 @@ class List extends Component {
             <div className="product-module-thumnail">
               <img
                 className="product-thumnail"
-                src={`${PRODUCT_THUMNAIL_PATH}${index + 1}.jpg`}
+                src={`${PRODUCT_THUMNAIL_PATH}${product.id}.jpg`}
                 alt="product thumnail"
               />
             </div>
