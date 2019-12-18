@@ -1,0 +1,42 @@
+.Header {
+  display: flex;
+  max-width: 100%;
+  height: 73px;
+  background-color: #2a96ed;
+  .main-logo {
+    width: 128px;
+    height: 34px;
+  }
+  .buttons-wrapper {
+    width: 100%;
+    display: inline-flex;
+    justify-content: flex-end;
+    button {
+      padding: 6px 12px;
+      height: 36px;
+      border-radius: 3px;
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    .sort-buttons-wrapper {
+      display: inline-flex;
+      justify-content: space-around;
+      width: 200px;
+      .high-price-button {
+      }
+      .low-price-button {
+      }
+    }
+    .list-buttons-wrapper {
+      display: inline-flex;
+      justify-content: space-around;
+      width: 200px;
+      .product-list-button {
+      }
+      .wish-list-button {
+      }
+    }
+  }
+}
