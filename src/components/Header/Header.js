@@ -41,16 +41,6 @@ class Header extends Component {
             </Link>
           </div>
           <div className="list-buttons-wrapper">
-            <Link to="/main">
-              <button
-                className={`product-list-button ${
-                  selectedListMessage === 'default' ? 'highlight' : ''
-                }`}
-                onClick={() => this.handleClick('default')}
-              >
-                상품 리스트
-              </button>
-            </Link>
             <Link to="/products/wish">
               <button
                 className={`wish-list-button ${
@@ -59,6 +49,16 @@ class Header extends Component {
                 onClick={() => this.handleClick('wish')}
               >
                 위시 리스트
+              </button>
+            </Link>
+            <Link to="/main">
+              <button
+                className={`product-list-button ${
+                  selectedListMessage === 'default' ? 'highlight' : ''
+                }`}
+                onClick={() => this.handleClick('default')}
+              >
+                상품 리스트
               </button>
             </Link>
           </div>
