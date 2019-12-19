@@ -28,8 +28,8 @@
     &:hover {
       transform: scale(1.01);
       transition: 0.3s;
-      box-shadow: 0 5px 5px rgba(133, 133, 133, 0.3),
-        0 4px 5px rgba(133, 133, 133, 0.3);
+      box-shadow: 0 5px 5px $shadowgray,
+        0 4px 5px $shadowgray;
     }
     .product-module-thumnail {
       height: 166px;
