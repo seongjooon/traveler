@@ -59,9 +59,13 @@ class List extends Component {
     updateWishList(cardId);
   };
 
-  showProductList = (product, index, wishList) => {
+  showProductList = (product, index) => {
+    const { wishList, selectedListMessage } = this.props;
+    const hasFewWishList =
+      wishList.length <= 4 && selectedListMessage === 'wish' ? 'Few' : '';
+
     return (
-      <div className="product-card" key={index}>
+      <div className={`product-card ${hasFewWishList}`} key={index}>
         <div className="product-module-thumnail">
           <img
             className="product-thumnail"
@@ -93,10 +97,9 @@ class List extends Component {
     const { productList, wishList, selectedListMessage } = this.props;
     const hasWishList =
       wishList.length || selectedListMessage !== 'wish' ? '' : 'Empty';
-    const hasFewWishList = wishList.length <= 4 ? 'Few' : '';
 
     return (
-      <div className={`List ${hasWishList} ${hasFewWishList}`}>
+      <div className={`List ${hasWishList}`}>
         {selectedListMessage === 'wish' ? (
           !wishList.length ? (
             <div className="empty-wish-list-wrapper">
@@ -109,13 +112,14 @@ class List extends Component {
                 wishId => wishId === product.id
               );
               if (hasWishCard) {
-                return this.showProductList(product, index, wishList);
+                return this.showProductList(product, index);
               }
+              return null;
             })
           )
         ) : (
           productList.map((product, index) =>
-            this.showProductList(product, index, wishList)
+            this.showProductList(product, index)
           )
         )}
       </div>
