@@ -19,7 +19,7 @@
   padding-top: 100px;
   .product-card {
     position: relative;
-    margin: 30px 2px;
+    margin: 40px 2px;
     width: 250px;
     height: 280px;
     border: 1px solid $lightgray;
@@ -90,7 +90,7 @@
     }
   }
   .Few {
-    margin: 30px 33px;
+    margin: 40px 33px;
   }
 }
 
@@ -104,8 +104,8 @@
     font-size: 1.3rem;
     color: darkgray;
     .empty-image {
-      padding-top: 100px;
-      width: 800px;
+      padding-top: 10%;
+      width: 100%;
     }
   }
 }
