@@ -7,9 +7,9 @@ import {
   UPDATE_WISH_LIST
 } from '../constants/actionTypes';
 
-export const getDataAction = data => ({
+export const getDataAction = productList => ({
   type: GET_DATA,
-  data
+  productList
 });
 
 export const getHighPriceAction = () => ({ type: GET_HIGH_PRICE });

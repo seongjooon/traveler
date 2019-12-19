@@ -15,10 +15,10 @@ export const initialState = {
   wishList: []
 };
 
-const getDataReducer = (state = initialState.productList, action) => {
+export const getDataReducer = (state = initialState.productList, action) => {
   switch (action.type) {
     case GET_DATA:
-      return action.data;
+      return action.productList;
     case GET_HIGH_PRICE:
       const sortedHighPriceList = state.sort((a, b) => b.price - a.price);
       return sortedHighPriceList;
@@ -30,7 +30,7 @@ const getDataReducer = (state = initialState.productList, action) => {
   }
 };
 
-const updateSortMessageReducer = (state = initialState.sortMessage, action) => {
+export const updateSortMessageReducer = (state = initialState.sortMessage, action) => {
   switch (action.type) {
     case UPDATE_SORT_MESSAGE:
       return action.selection;
@@ -39,7 +39,7 @@ const updateSortMessageReducer = (state = initialState.sortMessage, action) => {
   }
 };
 
-const updateSelectedListMessageReducer = (
+export const updateSelectedListMessageReducer = (
   state = initialState.sortMessage,
   action
 ) => {
@@ -51,7 +51,7 @@ const updateSelectedListMessageReducer = (
   }
 };
 
-const updateWishListReducer = (state = initialState.wishList, action) => {
+export const updateWishListReducer = (state = initialState.wishList, action) => {
   switch (action.type) {
     case UPDATE_WISH_LIST:
       const findedCardId = state.findIndex(wishId => wishId === action.cardId);
