@@ -17,12 +17,6 @@
   flex-wrap: wrap;
   justify-content: space-around;
   padding-top: 100px;
-  .empty-wish-list {
-    position: relative;
-    padding: 300px 470px;
-    font-size: 1.4rem;
-    color: darkgray;
-  }
   .product-card {
     position: relative;
     margin: 30px 2px;
@@ -72,5 +66,27 @@
         color: white;
       }
     }
+  }
+}
+
+.Empty {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  text-align: center;
+  .empty-wish-list-wrapper {
+    font-size: 1.3rem;
+    color: darkgray;
+    .empty-image {
+      padding-top: 100px;
+      width: 800px;
+    }
+  }
+}
+
+.Few {
+  .product-card {
+    margin: 30px 33px;
   }
 }

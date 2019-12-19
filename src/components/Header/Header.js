@@ -15,7 +15,11 @@ class Header extends Component {
     return (
       <div className="Header">
         <Link to="/main" className="main-logo">
-          <img src={Main} alt="Main Logo" />
+          <img
+            onClick={() => this.handleClick('default')}
+            src={Main}
+            alt="Main Logo"
+          />
         </Link>
         <div className="buttons-wrapper">
           <div className="sort-buttons-wrapper">

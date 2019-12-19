@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './List.scss';
 import { PRODUCT_THUMNAIL_PATH } from '../../constants/constant';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import Empty from '../../images/empty.gif';
 
 class List extends Component {
   componentDidMount() {
@@ -53,13 +54,17 @@ class List extends Component {
 
   render() {
     const { productList, wishList, selectedListMessage } = this.props;
+    const hasWishList =
+      wishList.length || selectedListMessage !== 'wish' ? '' : 'Empty';
+    const hasFewWishList = wishList.length <= 4 ? 'Few' : '';
 
     return (
-      <div className="List">
+      <div className={`List ${hasWishList} ${hasFewWishList}`}>
         {selectedListMessage === 'wish' ? (
           !wishList.length ? (
-            <div className="empty-wish-list">
+            <div className="empty-wish-list-wrapper">
               위시 리스트에 담긴 상품이 없습니다
+              <img className="empty-image" src={Empty} alt="Empty wish list" />
             </div>
           ) : (
             productList.map((product, index) => {
