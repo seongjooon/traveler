@@ -19,8 +19,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header
-          updateProductList={updateProductList}
           sortMessage={sortMessage}
+          updateProductList={updateProductList}
           selectedListMessage={selectedListMessage}
         />
         <Switch>
