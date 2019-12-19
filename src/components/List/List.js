@@ -3,12 +3,25 @@ import './List.scss';
 import { PRODUCT_THUMNAIL_PATH } from '../../constants/constant';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import Empty from '../../images/empty.gif';
+import debounce from 'lodash/debounce';
 
 class List extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { pageNumber: 1 };
+
+    this.scrollEvent = debounce(this.handlePageScroll, 200);
+  }
+
   componentDidMount() {
+    window.addEventListener('scroll', this.scrollEvent);
+
     const { onLoad, updateProductList, match } = this.props;
+    const { pageNumber } = this.state;
+
     setTimeout(() => {
-      onLoad();
+      onLoad(pageNumber);
       if (updateProductList) {
         const selection = match.params.selection;
 
@@ -17,8 +30,32 @@ class List extends Component {
     }, 500);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollEvent);
+  }
+
+  handlePageScroll = () => {
+    const { onLoad } = this.props;
+    const { pageNumber } = this.state;
+
+    let scrollHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+    let scrollTop = Math.max(
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    );
+    let clientHeight = document.documentElement.clientHeight;
+
+    if (scrollHeight - scrollTop - clientHeight <= 200) {
+      this.setState({ pageNumber: pageNumber + 1 }, onLoad(pageNumber + 1));
+    }
+  };
+
   handleClick = cardId => {
     const { updateWishList } = this.props;
+
     updateWishList(cardId);
   };
 

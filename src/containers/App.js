@@ -18,8 +18,15 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onLoad: () => {
-    dispatch(getDataAction(data));
+  onLoad: pageNumber => {
+    const dataList = data.reduce((acc, page) => {
+      if (page.id <= pageNumber) {
+        acc.push(...page.products);
+      }
+      return acc;
+    }, []);
+
+    dispatch(getDataAction(dataList));
     dispatch(updateSelectedListMessageAction('default'));
   },
   updateProductList: selection => {
