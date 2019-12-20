@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> matches snapshot 1`] = `
+<div
+  className="Header"
+>
+  <Link
+    className="main-logo"
+    to="/main"
+  >
+    <img
+      alt="Main Logo"
+      onClick={[Function]}
+      src="main-logo.png"
+    />
+  </Link>
+  <div
+    className="buttons-wrapper"
+  >
+    <div
+      className="sort-buttons-wrapper"
+    >
+      <Link
+        to="/sorted-price/high"
+      >
+        <button
+          className="high-price-button "
+          onClick={[Function]}
+        >
+          가격 높은순
+        </button>
+      </Link>
+      <Link
+        to="/sorted-price/low"
+      >
+        <button
+          className="low-price-button "
+          onClick={[Function]}
+        >
+          가격 낮은순
+        </button>
+      </Link>
+    </div>
+    <div
+      className="list-buttons-wrapper"
+    >
+      <Link
+        to="/products/wish"
+      >
+        <button
+          className="wish-list-button "
+          onClick={[Function]}
+        >
+          위시 리스트
+        </button>
+      </Link>
+      <Link
+        to="/main"
+      >
+        <button
+          className="product-list-button "
+          onClick={[Function]}
+        >
+          상품 리스트
+        </button>
+      </Link>
+    </div>
+  </div>
+</div>
+`;
