@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<List /> matches snapshot 1`] = `
+<div
+  className="List "
+>
+  <div
+    className="product-card "
+    key="0"
+  >
+    <div
+      className="product-module-thumnail"
+    >
+      <img
+        alt="product thumnail"
+        className="product-thumnail"
+        src="https://myrealtrip-upload-us.s3.amazonaws.com/share/thumbnail/thumbnail-4.jpg"
+      />
+    </div>
+    <div
+      className="product-module-body"
+    >
+      <h3
+        className="product-title"
+      >
+        산에서 바라본 시계탑
+      </h3>
+      <div
+        className="product-price"
+      >
+        22,000
+        원
+      </div>
+    </div>
+    <div
+      className="product-wish-icons"
+      onClick={[Function]}
+    >
+      <FaRegHeart
+        className="heart-empty-icon"
+      />
+    </div>
+  </div>
+  <div
+    className="product-card "
+    key="1"
+  >
+    <div
+      className="product-module-thumnail"
+    >
+      <img
+        alt="product thumnail"
+        className="product-thumnail"
+        src="https://myrealtrip-upload-us.s3.amazonaws.com/share/thumbnail/thumbnail-5.jpg"
+      />
+    </div>
+    <div
+      className="product-module-body"
+    >
+      <h3
+        className="product-title"
+      >
+        길거리 그림들
+      </h3>
+      <div
+        className="product-price"
+      >
+        50,000
+        원
+      </div>
+    </div>
+    <div
+      className="product-wish-icons"
+      onClick={[Function]}
+    >
+      <FaRegHeart
+        className="heart-empty-icon"
+      />
+    </div>
+  </div>
+  <div
+    className="product-card "
+    key="2"
+  >
+    <div
+      className="product-module-thumnail"
+    >
+      <img
+        alt="product thumnail"
+        className="product-thumnail"
+        src="https://myrealtrip-upload-us.s3.amazonaws.com/share/thumbnail/thumbnail-6.jpg"
+      />
+    </div>
+    <div
+      className="product-module-body"
+    >
+      <h3
+        className="product-title"
+      >
+        표지판
+      </h3>
+      <div
+        className="product-price"
+      >
+        7,000
+        원
+      </div>
+    </div>
+    <div
+      className="product-wish-icons"
+      onClick={[Function]}
+    >
+      <FaRegHeart
+        className="heart-empty-icon"
+      />
+    </div>
+  </div>
+</div>
+`;
