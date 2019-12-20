@@ -59,7 +59,7 @@ class List extends Component {
     updateWishList(cardId);
   };
 
-  showProductList = (product, index) => {
+  renderProductCard = (product, index) => {
     const { wishList, selectedListMessage } = this.props;
     const hasFewWishList =
       wishList.length <= 4 && selectedListMessage === 'wish' ? 'Few' : '';
@@ -112,14 +112,14 @@ class List extends Component {
                 wishId => wishId === product.id
               );
               if (hasWishCard) {
-                return this.showProductList(product, index);
+                return this.renderProductCard(product, index);
               }
               return null;
             })
           )
         ) : (
           productList.map((product, index) =>
-            this.showProductList(product, index)
+            this.renderProductCard(product, index)
           )
         )}
       </div>
