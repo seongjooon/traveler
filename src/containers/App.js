@@ -8,7 +8,7 @@ import {
   updateSelectedListMessageAction,
   updateWishListAction
 } from '../actions';
-import data from '../data.json';
+import { getDataApi } from '../api';
 
 const mapStateToProps = state => ({
   productList: state.productList,
@@ -19,6 +19,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onLoad: pageNumber => {
+    const data = getDataApi();
+
     const dataList = data.reduce((acc, page) => {
       if (page.id <= pageNumber) {
         acc.push(...page.products);
