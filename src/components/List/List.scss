@@ -11,6 +11,14 @@
   }
 }
 
+// $mediaPcWidth: 1024px;
+// $mediatabletWidth: 768px;
+
+// @media (min-width: #{$mediatabletWidth}) {
+// }
+// @media (min-width: #{$mediaPcWidth}) {
+// }
+
 .List {
   position: relative;
   display: inline-flex;
